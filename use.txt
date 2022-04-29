@@ -1,0 +1,34 @@
+	@GetMapping(value="/PersonalDetails/{id}")
+		public ResponseEntity<PersonalDetails> startPageCS(@PathVariable int id) 
+		{
+			Optional<PersonalDetails> sop=hs.getSingle(id);
+			if(sop.isPresent()) {
+			PersonalDetails sret=sop.get();
+			return new ResponseEntity<>(sret,HttpStatus.OK);
+			}
+			else
+			{
+				throw new CustomerNotFoundException("Customer Not Avialable");
+			}
+			
+		}
+
+
+
+
+
+@GetMapping(value="/EnquiryDetails/{id}")
+		public ResponseEntity<EnquiryDetails> startPageES(@PathVariable int id) 
+		{
+			Optional<EnquiryDetails> sop=hs.getSingleE(id);
+			if(sop.isPresent()) {
+			EnquiryDetails sret=sop.get();
+			return new ResponseEntity<>(sret,HttpStatus.OK);
+			}
+			else
+			{
+				throw new EnquiryNotFoundException("Enquiry Not Found  !!!");
+			}
+			
+		}
+		
