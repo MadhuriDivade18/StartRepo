@@ -1,0 +1,13 @@
+
+//paste in CityServiceService
+
+
+
+ private url="http://localhost:8080/EnquiryDetails";
+
+getEnquiryList(): Observable<any> {
+    return this.http.get(`${this.url}`);
+  }
+  createEnquiry(e: Enquiry): Observable<Object> {
+    return this.http.post(`${this.url}`, e);
+  }
